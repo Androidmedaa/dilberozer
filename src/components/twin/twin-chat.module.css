@@ -22,6 +22,20 @@
   width: 100%;
 }
 
+.speakingBadge {
+  background: var(--color-primary);
+  border-radius: 999px;
+  bottom: 10px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  left: 50%;
+  padding: 4px 10px;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
 .avatarImage {
   object-fit: cover;
 }
@@ -91,6 +105,28 @@
   opacity: 0.6;
 }
 
+.voiceToggle {
+  background: transparent;
+  border: 1px solid rgba(1, 43, 85, 0.2);
+  border-radius: 999px;
+  color: var(--color-secondary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: auto;
+  padding: 6px 12px;
+}
+
+.voiceToggleOn {
+  background: rgba(1, 43, 85, 0.08);
+  color: var(--color-primary);
+}
+
+.voiceToggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .messages {
   display: flex;
   flex: 1;
@@ -122,6 +158,24 @@
   color: var(--color-text);
 }
 
+.replayBtn {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.replayBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .fallbackTag {
   color: var(--color-secondary);
   font-size: 12px;
@@ -140,9 +194,37 @@
 }
 
 .form {
+  align-items: stretch;
   display: flex;
   gap: 10px;
   margin-top: 16px;
+}
+
+.micBtn {
+  background: rgba(1, 43, 85, 0.08);
+  border: 1px solid rgba(1, 43, 85, 0.2);
+  border-radius: 8px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 14px;
+  white-space: nowrap;
+}
+
+.micBtn:hover:not(:disabled) {
+  background: rgba(1, 43, 85, 0.12);
+}
+
+.micBtnActive {
+  background: #b42318;
+  border-color: #b42318;
+  color: #fff;
+}
+
+.micBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .input {

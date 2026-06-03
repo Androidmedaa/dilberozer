@@ -24,13 +24,31 @@ class HealthResponse(BaseModel):
     status: str
     ollama: bool
     knowledge_chunks: int
+    voice_enabled: bool = False
+    stt_ready: bool = False
+    tts_ready: bool = False
+    stt_message: str | None = None
+    tts_message: str | None = None
+    whisper_device: str | None = None
+    piper_cuda: bool = False
 
 
-class SttStubResponse(BaseModel):
+class SttResponse(BaseModel):
+    text: str
+    language: str
+    duration_seconds: float = 0.0
+
+
+class SttErrorResponse(BaseModel):
     status: str
     message: str
 
 
-class TtsStubResponse(BaseModel):
+class TtsRequest(BaseModel):
+    text: str = Field(..., min_length=1, max_length=2000)
+    locale: Literal["tr", "en"] = "tr"
+
+
+class TtsErrorResponse(BaseModel):
     status: str
     message: str

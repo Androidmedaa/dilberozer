@@ -21,6 +21,9 @@ const workSans = Work_Sans({
   display: "swap",
 });
 
+/** Stable class string — avoids Turbopack dev hydration drift on <html>. */
+const fontVariables = `${sourceSans.variable} ${sourceSerif.variable} ${workSans.variable}`;
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
@@ -44,11 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${sourceSans.variable} ${sourceSerif.variable} ${workSans.variable}`}
-    >
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={fontVariables}>
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

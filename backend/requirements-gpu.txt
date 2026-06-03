@@ -1,0 +1,5 @@
+# GPU extras — install after requirements.txt on CUDA servers:
+#   pip install -r requirements.txt -r requirements-gpu.txt
+#   pip uninstall onnxruntime -y  # keep only GPU build
+
+onnxruntime-gpu==1.20.2

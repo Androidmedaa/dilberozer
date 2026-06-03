@@ -44,6 +44,9 @@ backend/__pycache__/
 *.pyc
 backend/.env
 
+# Piper / Whisper model weights (download via scripts/download-piper-tr.sh)
+/models/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -40,7 +40,10 @@ Kullanıcı sorusu:
             {"role": "user", "content": user_block},
         ],
         "stream": False,
-        "options": {"temperature": 0.3},
+        "options": {
+            "temperature": 0.3,
+            "num_predict": settings.ollama_num_predict,
+        },
     }
 
     url = f"{settings.ollama_base_url.rstrip('/')}/api/chat"

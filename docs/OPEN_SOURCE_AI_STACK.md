@@ -8,8 +8,8 @@ Phase 1 (current): **Ollama + JSON RAG + FastAPI + Next.js text chat**
 |-------|---------|----------|
 | LLM | Ollama (`qwen2.5:7b-instruct`) | vLLM on GPU |
 | RAG | Keyword retrieval over `knowledge/*.json` | PostgreSQL + pgvector + bge-m3 |
-| STT | Stub endpoint | faster-whisper |
-| TTS | Stub endpoint | Piper (Turkish) |
+| STT | faster-whisper (`/api/v1/voice/stt`) | GPU `large-v3` |
+| TTS | Piper TR (`/api/v1/voice/tts`) | — |
 | Avatar | Static image on `/twin` | Wav2Lip / SadTalker |
 
 ## Run locally
@@ -36,8 +36,8 @@ Visit: http://localhost:3000/twin
 
 - `GET /api/v1/health` — Ollama + knowledge status
 - `POST /api/v1/chat` — `{ message, mode, locale }`
-- `POST /api/v1/voice/stt` — Phase 2
-- `POST /api/v1/voice/tts` — Phase 2
+- `POST /api/v1/voice/stt` — multipart audio
+- `POST /api/v1/voice/tts` — JSON `{ text, locale }` → WAV
 
 ## Modes
 

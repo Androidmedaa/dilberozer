@@ -6,8 +6,8 @@ from app.routers import chat, health, voice
 
 app = FastAPI(
     title="Dilber Özer — AI Digital Twin API",
-    description="Open-source LLM + RAG backend (Phase 1: text chat)",
-    version="0.1.0",
+    description="Open-source LLM + RAG + voice (Phase 2: STT/TTS)",
+    version="0.2.0",
 )
 
 app.add_middleware(

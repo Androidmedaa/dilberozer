@@ -5,8 +5,12 @@ pydantic>=2.9.0
 pydantic-settings>=2.6.0
 python-multipart>=0.0.12
 
-# Phase 2+ (uncomment when enabling voice / vector RAG)
-# faster-whisper>=1.0.0
+# Phase 2 — voice (GPU: set WHISPER_DEVICE=cuda in .env)
+faster-whisper>=1.0.0
+piper-tts>=1.2.0
+onnxruntime>=1.16.0
+
+# Phase 3+ (vector RAG)
 # psycopg[binary]>=3.2.0
 # pgvector>=0.3.0
 # sentence-transformers>=3.0.0

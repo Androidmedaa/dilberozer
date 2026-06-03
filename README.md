@@ -40,14 +40,15 @@ Ses (STT/TTS) ve avatar **henüz stub** — Phase 2–3.
 - [x] Knowledge RAG — `knowledge/*.json` (keyword retrieval)
 - [x] Modlar: `default` | `interview` | `skills`
 - [x] Next.js `/twin` + proxy `POST /api/twin/chat`
-- [x] STT/TTS endpoint stub (`/api/v1/voice/*`) — Phase 2
+- [x] STT/TTS (`/api/v1/voice/*`) — faster-whisper + Piper TR
+- [x] `/twin` mikrofon + sesli yanıt + Next proxy `/api/twin/voice/*`
 
 ### Deploy hazırlığı
 - [x] `.env.example`, `DEPLOY.md`, `robots.ts`, `sitemap.ts`
 - [x] `SITE_PRIVATE` — unlisted mod
 
 ### Yapılmadı (sıradaki işler)
-- [ ] Phase 2: faster-whisper (STT) + Piper (TTS TR)
+- [x] GPU config: Whisper `cuda` + Piper `PIPER_USE_CUDA` (`backend/.env`, `scripts/setup-gpu.sh`)
 - [ ] Phase 3: PostgreSQL + pgvector + bge-m3 embeddings
 - [ ] Avatar / lip-sync (Wav2Lip veya HeyGen alternatifi)
 - [ ] GitHub → Vercel deploy (repo henüz remote’a bağlı olmayabilir)
@@ -67,8 +68,8 @@ Ses (STT/TTS) ve avatar **henüz stub** — Phase 2–3.
     └────────────────────┼─► GPU sunucu: FastAPI :8000
                              ├─ RAG ← knowledge/*.json
                              ├─ LLM ← Ollama :11434
-                             ├─ (Phase 2) Whisper STT
-                             └─ (Phase 2) Piper TTS
+                             ├─ Whisper STT (faster-whisper)
+                             └─ Piper TTS (TR)
 ```
 
 **Önemli:** Vercel üzerinde Ollama/Whisper çalışmaz. Twin için GPU makinede backend açık olmalı; Vercel’de `TWIN_BACKEND_URL=https://gpu-sunucu-adresi` tanımlanır.
@@ -298,8 +299,8 @@ TWIN_BACKEND_URL=https://api.senin-domainin.com
 |--------|------|--------|
 | GET | `/api/v1/health` | Hazır |
 | POST | `/api/v1/chat` | Hazır — body: `{ "message", "mode", "locale" }` |
-| POST | `/api/v1/voice/stt` | Stub (Phase 2) |
-| POST | `/api/v1/voice/tts` | Stub (Phase 2) |
+| POST | `/api/v1/voice/stt` | Hazır — multipart `audio` |
+| POST | `/api/v1/voice/tts` | Hazır — `{ text, locale }` → WAV |
 
 `mode`: `default` | `interview` | `skills`  
 `locale`: `tr` | `en`
@@ -310,10 +311,10 @@ TWIN_BACKEND_URL=https://api.senin-domainin.com
 
 1. **GitHub push** + Vercel deploy → `DEPLOY.md`  
 2. **GPU makine** → bu README §7  
-3. **Phase 2 ses**  
-   - `pip install faster-whisper` → `backend/app/routers/voice.py`  
-   - Piper TR model → TTS endpoint  
-   - `/twin` UI: mikrofon + ses oynatma  
+3. **Phase 2 ses (kurulum)**  
+   - `pip install -r backend/requirements.txt`  
+   - `bash scripts/download-piper-tr.sh`  
+   - GPU: `WHISPER_DEVICE=cuda` in `backend/.env`  
 4. **Phase 3 RAG**  
    - PostgreSQL + pgvector  
    - `sentence-transformers` / bge-m3 embed  
@@ -377,4 +378,4 @@ curl -X POST http://localhost:8000/api/v1/chat \
 
 ---
 
-*Son güncelleme: Phase 1 tamamlandı — metin tabanlı Digital Twin + portföy. GPU makinesine geçince §7’yi sırayla uygula.*
+*Son güncelleme: Phase 2 kodu hazır (STT/TTS + /twin ses). GPU makinesinde §7 + Piper model indir.*
