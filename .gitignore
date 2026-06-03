@@ -37,16 +37,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Python backend
-backend/.venv/
-backend/__pycache__/
-**/__pycache__/
-*.pyc
-backend/.env
-
-# Piper / Whisper model weights (download via scripts/download-piper-tr.sh)
-/models/
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts

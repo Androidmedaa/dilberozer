@@ -24,7 +24,6 @@ export const siteConfig = {
 
 export const navItems = [
   { label: "Projects", href: "/" },
-  { label: "AI Twin", href: "/twin" },
   { label: "Internships", href: "/internships" },
   { label: "Artificial Intelligence", href: "/artificial-intelligence" },
   { label: "About", href: "/about" },
