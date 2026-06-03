@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4, Work_Sans } from "next/font/google";
-import { SiteShell } from "@/components/layout/SiteShell";
+import { Cinzel, EB_Garamond, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import "./library-theme.css";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const garamond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -9,35 +21,22 @@ const sourceSans = Source_Sans_3({
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  variable: "--font-work",
-  display: "swap",
-});
-
-/** Stable class string — avoids Turbopack dev hydration drift on <html>. */
-const fontVariables = `${sourceSans.variable} ${sourceSerif.variable} ${workSans.variable}`;
+const fontVariables = `${cinzel.variable} ${garamond.variable} ${sourceSans.variable}`;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dilber Özer — Artificial Intelligence Portfolio",
+    default: "Dilber Özer — Living Knowledge Library",
     template: "%s | Dilber Özer",
   },
   description:
-    "AI engineering portfolio — internships, research projects, speech/LLM systems, and production-focused case studies.",
+    "An immersive magical library portfolio — explore Dilber Özer's AI engineering journey through enchanted books.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Dilber Özer Portfolio",
+    siteName: "Dilber Özer — Living Library",
   },
 };
 
@@ -48,9 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={fontVariables}>
-        <SiteShell>{children}</SiteShell>
-      </body>
+      <body className={fontVariables}>{children}</body>
     </html>
   );
 }

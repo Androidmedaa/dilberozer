@@ -1,0 +1,12 @@
+.legacyShell {
+  background: #f7f4ee;
+  color: #191919;
+  font-family: var(--font-body), system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.legacyShell a {
+  color: #5c3d18;
+}

@@ -1,0 +1,17 @@
+.link {
+  background: linear-gradient(180deg, #3d2e1f, #2a1a0c);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+  color: #f5e6c8;
+  display: block;
+  font-family: var(--font-display), "Cinzel", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 14px 24px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.link:hover {
+  background: #5c4a32;
+}

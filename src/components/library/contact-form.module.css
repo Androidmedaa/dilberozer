@@ -1,0 +1,51 @@
+.formWrap :global(.form) {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formWrap :global(.label) {
+  color: #3d2e1f;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.formWrap :global(.input),
+.formWrap :global(.textarea) {
+  background: rgba(255, 252, 240, 0.8);
+  border: 1px solid rgba(90, 60, 30, 0.35);
+  border-radius: 4px;
+  color: #2a1f12;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 15px;
+  padding: 10px 12px;
+  width: 100%;
+}
+
+.formWrap :global(.textarea) {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formWrap :global(.submit) {
+  background: linear-gradient(180deg, #5c4a32 0%, #3d2e1f 100%);
+  border: 1px solid #c9a227;
+  border-radius: 6px;
+  color: #fff8e7;
+  cursor: pointer;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.formWrap :global(.submit:hover:not(:disabled)) {
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.45);
+  transform: translateY(-1px);
+}
+
+.formWrap :global(.formFeedback) {
+  font-size: 14px;
+}

@@ -1,0 +1,9 @@
+.loading {
+  align-items: center;
+  background: #0a0604;
+  color: #f5e6c8;
+  display: flex;
+  font-family: var(--font-display), Georgia, serif;
+  height: 100vh;
+  justify-content: center;
+}

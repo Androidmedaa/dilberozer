@@ -1,48 +1,45 @@
-# Dilber Özer — Portfolio
+# Dilber Özer — Living Knowledge Library
 
-Next.js 16 portföy sitesi: projeler, stajlar, AI sayfası, hakkında, iletişim.
+Minimalist **3D library** homepage (Next.js 16 + React Three Fiber). Four books:
 
-## Geliştirme
+- **Desk (open)** — Home
+- **Shelf** — About Me, AI Projects, Contact
+
+## Run
 
 ```bash
 npm install
 cp .env.example .env.local
-# FORMSPREE_FORM_ID ve NEXT_PUBLIC_SITE_URL düzenle
 npm run dev
 ```
 
 → http://localhost:3000
 
-## İçerik düzenleme
+## Deep links
 
-| Ne | Dosya |
-|----|--------|
-| Menü, sosyal linkler | `src/data/site.ts` |
-| Projeler | `src/data/projects.ts` |
-| Stajlar | `src/data/internships.ts` |
+- `/?book=about`
+- `/?book=projects` (legacy: `/?book=ai-projects`)
+- `/?book=internships`
+- `/?book=contact`
+
+Project case studies: `/projects/[slug]` (with return link to library).
+
+## Content
+
+| Book | Data |
+|------|------|
+| Home | `src/data/site.ts`, projects teaser |
 | About | `src/data/about.ts` |
-| AI sayfası | `src/data/artificial-intelligence.ts` |
-| CV PDF | `public/cv/dilber_ozer.pdf` |
+| AI Projects | `src/data/projects.ts`, internships, AI page |
+| Contact | Formspree via `/api/contact` |
+
+## 3D scene
+
+- `src/components/library3d/` — Three.js room (desk + shelf books)
+- Reuses parchment UI from `src/components/library/BookSpread.tsx`
 
 ## Deploy
 
-Vercel + Formspree: [DEPLOY.md](./DEPLOY.md)
+[DEPLOY.md](./DEPLOY.md) — Vercel, `FORMSPREE_FORM_ID`, `NEXT_PUBLIC_SITE_URL`
 
-## Ortam değişkenleri
-
-| Değişken | Açıklama |
-|----------|----------|
-| `NEXT_PUBLIC_SITE_URL` | Canlı site URL (sonda `/` yok) |
-| `FORMSPREE_FORM_ID` | İletişim formu |
-| `SITE_PRIVATE` | `true` → arama motorları kapalı |
-
-## Komutlar
-
-```bash
-npm run build
-npm start
-```
-
----
-
-*AI Digital Twin / LLM backend ayrı branch’te: `feature/ai-twin-full`*
+*Full AI Twin stack lives on branch `feature/ai-twin-full`.*

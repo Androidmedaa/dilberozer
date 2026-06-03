@@ -1,16 +1,19 @@
-import { Hero } from "@/components/home/Hero";
-import { MediumOcrFeature } from "@/components/home/MediumOcrFeature";
-import { ProjectGallery } from "@/components/home/ProjectGallery";
-import { getProjectsByGallery } from "@/data/projects";
+import { Suspense } from "react";
+import { LibraryExperience } from "@/components/library3d/LibraryExperience";
+import styles from "./library-loading.module.css";
+
+function LibraryFallback() {
+  return (
+    <div className={styles.loading}>
+      <p>Opening the library…</p>
+    </div>
+  );
+}
 
 export default function HomePage() {
-  const projects = getProjectsByGallery("work");
-
   return (
-    <>
-      <Hero />
-      <ProjectGallery projects={projects} />
-      <MediumOcrFeature />
-    </>
+    <Suspense fallback={<LibraryFallback />}>
+      <LibraryExperience />
+    </Suspense>
   );
 }

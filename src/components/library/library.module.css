@@ -1,0 +1,577 @@
+/* Magical Library — immersive room */
+
+.library {
+  background: #0a0604;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+
+.particlesCanvas {
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 30;
+}
+
+/* Wand cursor */
+:global(body.library-cursor-active) {
+  cursor: none;
+}
+
+:global(body.library-cursor-active) a,
+:global(body.library-cursor-active) button {
+  cursor: none;
+}
+
+.wandLayer {
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.wandTip {
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+
+.wandStar {
+  color: #ffd878;
+  filter: drop-shadow(0 0 8px rgba(255, 210, 120, 0.9));
+  font-size: 22px;
+  line-height: 1;
+}
+
+.wandTrail {
+  background: radial-gradient(circle, #fff8dc 0%, transparent 70%);
+  border-radius: 50%;
+  height: 8px;
+  pointer-events: none;
+  position: fixed;
+  width: 8px;
+  z-index: 99;
+}
+
+/* Room — portrait artboard fits fully (no crop / blur upscale) */
+.roomStage {
+  align-items: center;
+  background: #0a0604;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+  position: relative;
+  width: 100%;
+}
+
+.libraryZoomed .roomStage {
+  filter: blur(4px) brightness(0.5);
+  transform: scale(1.03);
+  transition: filter 0.6s ease, transform 0.8s ease;
+}
+
+.roomFrame {
+  aspect-ratio: 736 / 1313; /* match room-asset.ts — use 16/9 for landscape room.jpg */
+  height: 100dvh;
+  isolation: isolate;
+  max-width: 100vw;
+  position: relative;
+  width: auto;
+}
+
+/* Narrow viewports: fit by width instead of height */
+@media (max-aspect-ratio: 9/14) {
+  .roomFrame {
+    height: auto;
+    max-height: 100dvh;
+    width: 100vw;
+  }
+}
+
+.roomBg {
+  display: block;
+  height: 100% !important;
+  object-fit: contain;
+  object-position: center center;
+  width: 100% !important;
+}
+
+.roomVignette {
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 45%,
+    transparent 0%,
+    rgba(8, 4, 2, 0.35) 55%,
+    rgba(4, 2, 1, 0.85) 100%
+  );
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.sunRays {
+  background: linear-gradient(
+    125deg,
+    transparent 40%,
+    rgba(255, 220, 140, 0.06) 48%,
+    rgba(255, 200, 100, 0.12) 52%,
+    transparent 60%
+  );
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  animation: raysPulse 8s ease-in-out infinite;
+}
+
+@keyframes raysPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.roomTitle {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 4%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 90%;
+}
+
+.roomTitleText {
+  color: #f5e6c8;
+  font-family: var(--font-display), "Cinzel", serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 200, 100, 0.25);
+  text-transform: uppercase;
+}
+
+.roomSubtitle {
+  color: rgba(245, 230, 200, 0.75);
+  font-family: var(--font-display), "EB Garamond", serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+/* Bookshelf — aligned to desk / foreground (right side of room art) */
+.bookshelf {
+  bottom: 22%;
+  position: absolute;
+  right: 6%;
+  top: auto;
+  width: min(200px, 22%);
+  z-index: 12;
+}
+
+.shelfPlank {
+  background: linear-gradient(180deg, #4a3520 0%, #2a1a0c 100%);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 2px 0 rgba(255, 220, 160, 0.15);
+  height: 14px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.shelfBooks {
+  align-items: flex-end;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  min-height: 200px;
+  padding: 0 8px 4px;
+  perspective: 600px;
+}
+
+/* Shelf books — different sizes */
+.shelfBook {
+  background: linear-gradient(90deg, var(--spine) 0%, var(--cover) 35%, var(--cover) 100%);
+  border: none;
+  border-radius: 3px 6px 6px 3px;
+  box-shadow:
+    4px 6px 16px rgba(0, 0, 0, 0.45),
+    inset -2px 0 8px rgba(0, 0, 0, 0.3),
+    inset 2px 0 4px rgba(255, 255, 255, 0.08);
+  cursor: none;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease;
+}
+
+.shelfBook:hover .shelfBookGlow {
+  opacity: 1;
+}
+
+.shelfBook:hover .shelfBookDust {
+  opacity: 1;
+}
+
+.shelfBook_medium {
+  height: 140px;
+  width: 52px;
+}
+
+.shelfBook_thick {
+  height: 155px;
+  width: 68px;
+}
+
+.shelfBook_small-sealed {
+  height: 95px;
+  width: 42px;
+}
+
+.shelfBookGlow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 210, 120, 0.45) 0%,
+    transparent 70%
+  );
+  inset: -20px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.35s ease;
+}
+
+.shelfBookDust {
+  background-image: radial-gradient(circle, rgba(255, 230, 180, 0.8) 1px, transparent 1px);
+  background-size: 8px 8px;
+  inset: -12px -8px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.35s ease;
+}
+
+.shelfBookSpine {
+  color: rgba(255, 248, 230, 0.92);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display), "Cinzel", serif;
+  font-size: 9px;
+  font-weight: 600;
+  height: 100%;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  padding: 8px 4px;
+  text-align: center;
+  text-orientation: mixed;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  writing-mode: vertical-rl;
+}
+
+.shelfBook_thick .shelfBookTitle {
+  font-size: 10px;
+}
+
+.shelfBook_small-sealed .shelfBookTitle {
+  font-size: 8px;
+}
+
+.shelfBookSub {
+  color: var(--accent);
+  font-size: 7px;
+  font-weight: 400;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+.shelfBookSeal {
+  background: radial-gradient(circle, #c9a227 0%, #8b6914 100%);
+  border: 2px solid #f5e6a8;
+  border-radius: 50%;
+  bottom: 8px;
+  box-shadow: 0 0 12px rgba(201, 162, 39, 0.6);
+  color: #2a1a08;
+  font-size: 12px;
+  height: 22px;
+  left: 50%;
+  line-height: 18px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 22px;
+}
+
+/* Desk + open home book — over the wooden desk in the scene */
+.desk {
+  bottom: 6%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-42%);
+  width: min(78%, 520px);
+  z-index: 15;
+}
+
+.deskSurface {
+  background: linear-gradient(180deg, transparent 0%, rgba(30, 18, 8, 0.4) 100%);
+  height: 120px;
+  width: 100%;
+}
+
+.deskBook {
+  bottom: 0;
+  left: 0;
+  position: relative;
+  transform: none;
+  width: 100%;
+}
+
+.deskBookInner {
+  background: transparent;
+  border: none;
+  cursor: none;
+  padding: 0;
+  width: 100%;
+}
+
+.deskSpread {
+  background: linear-gradient(180deg, #e8d4a8 0%, #d4bc88 100%);
+  border-radius: 4px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(255, 210, 120, 0.15),
+    inset 0 0 60px rgba(139, 100, 50, 0.08);
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr 8px 1fr;
+  min-height: 280px;
+  padding: 20px 16px;
+  position: relative;
+}
+
+.deskSpread::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 248, 220, 0.4) 50%,
+    transparent
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.deskPage {
+  font-size: 12px;
+  max-height: 240px;
+  overflow: hidden;
+  padding: 4px 8px;
+}
+
+.deskSpine {
+  background: linear-gradient(90deg, #8b6914, #c9a227, #8b6914);
+  border-radius: 2px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.deskHint {
+  color: rgba(245, 230, 200, 0.7);
+  display: block;
+  font-family: var(--font-display), serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Reading overlay — full book */
+.readingOverlay {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+  z-index: 50;
+}
+
+.readingBackdrop {
+  background: rgba(4, 2, 1, 0.75);
+  inset: 0;
+  position: absolute;
+}
+
+.openBook {
+  background: linear-gradient(145deg, #f0e0b8 0%, #dcc898 50%, #c9b080 100%);
+  border-radius: 8px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(255, 200, 100, 0.2);
+  max-height: 88vh;
+  min-height: min(72vh, 640px);
+  max-width: 1100px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 51;
+}
+
+.openBookHeader {
+  align-items: center;
+  background: rgba(60, 40, 20, 0.12);
+  border-bottom: 1px solid rgba(90, 60, 30, 0.25);
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+}
+
+.openBookTitle {
+  color: #3d2e1f;
+  font-family: var(--font-display), "Cinzel", serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.closeBookBtn {
+  background: rgba(60, 40, 20, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 6px;
+  color: #3d2e1f;
+  cursor: none;
+  font-family: var(--font-display), serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.closeBookBtn:hover {
+  background: rgba(201, 162, 39, 0.25);
+  box-shadow: 0 0 16px rgba(255, 210, 120, 0.35);
+}
+
+.spread {
+  display: grid;
+  grid-template-columns: 1fr 12px 1fr;
+  max-height: calc(90vh - 60px);
+  overflow: hidden;
+  perspective: 1400px;
+}
+
+.pageLeft,
+.pageRight {
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.pageLeft {
+  transform-origin: right center;
+}
+
+.pageRight {
+  transform-origin: left center;
+}
+
+.pageInner {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-color: #f5ecd8;
+  box-shadow: inset 0 0 40px rgba(139, 100, 50, 0.12);
+  max-height: calc(90vh - 80px);
+  overflow-y: auto;
+  padding: 28px 24px;
+  scrollbar-color: #8b6914 #f0e6cc;
+  scrollbar-width: thin;
+}
+
+.pageLeft .pageInner {
+  border-radius: 4px 0 0 4px;
+  margin: 16px 0 16px 16px;
+}
+
+.pageRight .pageInner {
+  border-radius: 0 4px 4px 0;
+  margin: 16px 16px 16px 0;
+}
+
+.spineCenter {
+  background: linear-gradient(90deg, #6b4e1f, #a67c2a, #6b4e1f);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.35);
+  margin: 16px 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .bookshelf {
+    bottom: 18%;
+    right: 2%;
+    width: min(110px, 32%);
+  }
+
+  .shelfBooks {
+    flex-direction: column;
+    gap: 10px;
+    min-height: auto;
+  }
+
+  .shelfBook {
+    height: auto !important;
+    min-height: 44px;
+    width: 100% !important;
+  }
+
+  .shelfBookSpine {
+    font-size: 11px;
+    padding: 10px;
+    writing-mode: horizontal-tb;
+  }
+
+  .deskBook {
+    bottom: 12%;
+    width: 94%;
+  }
+
+  .deskSpread {
+    grid-template-columns: 1fr;
+    min-height: 200px;
+  }
+
+  .deskSpine {
+    display: none;
+  }
+
+  .spread {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .spineCenter {
+    display: none;
+  }
+
+  .pageLeft .pageInner,
+  .pageRight .pageInner {
+    margin: 8px;
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunRays {
+    animation: none;
+  }
+}
