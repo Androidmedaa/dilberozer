@@ -1556,9 +1556,32 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
+/** Homepage “Projects” gallery order */
+const WORK_GALLERY_ORDER = [
+  "rota-ai",
+  "flower-classification-ai",
+  "cinema-night-film-management",
+  "nutuk-gpt-from-scratch",
+  "arduino-simon-game",
+  "kits23-kidney-tumor-segmentation",
+  "sema-ai-summarizer",
+  "other-small-projects",
+] as const;
+
 export function getProjectsByGallery(
   gallery?: "work" | "internships" | "ai",
 ): Project[] {
-  if (!gallery) return projects.filter((p) => p.gallery === "work" || !p.gallery);
-  return projects.filter((p) => p.gallery === gallery);
+  const filtered =
+    !gallery
+      ? projects.filter((p) => p.gallery === "work" || !p.gallery)
+      : projects.filter((p) => p.gallery === gallery);
+
+  if (gallery === "work" || !gallery) {
+    const rank = new Map(WORK_GALLERY_ORDER.map((slug, index) => [slug, index]));
+    return [...filtered].sort(
+      (a, b) => (rank.get(a.slug) ?? 999) - (rank.get(b.slug) ?? 999),
+    );
+  }
+
+  return filtered;
 }
