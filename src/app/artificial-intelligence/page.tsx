@@ -4,7 +4,7 @@ import { getProjectsByGallery } from "@/data/projects";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Engineering",
+  title: "Computer Engineering",
 };
 
 export default function ArtificialIntelligencePage() {

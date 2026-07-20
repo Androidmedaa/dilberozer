@@ -73,6 +73,11 @@
   max-width: min(100%, 560px);
 }
 
+.figure img[src$=".svg"],
+.figure img[src*=".svg"] {
+  max-width: min(100%, 980px);
+}
+
 .header {
   margin-bottom: 48px;
   padding: 0 2%;
@@ -187,6 +192,28 @@
   height: auto;
   max-width: min(100%, 720px);
   width: auto;
+}
+
+.figureFullWidth {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(100%, 860px);
+  width: 100%;
+}
+
+.imageMediaFullWidth {
+  max-width: 100%;
+  width: 100%;
+}
+
+.imageFullWidth {
+  height: auto !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.captionFullWidth {
+  max-width: 100%;
 }
 
 .caption {

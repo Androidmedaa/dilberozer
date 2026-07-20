@@ -8,7 +8,7 @@
 
 .gallery::before {
   color: var(--ai-core);
-  content: "Knowledge nodes";
+  content: "Projects";
   display: block;
   font-family: var(--font-accent), sans-serif;
   font-size: 11px;

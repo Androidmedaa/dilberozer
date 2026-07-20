@@ -1,4 +1,4 @@
-export const aboutProfile = `I am Dilber Özer, a Software Engineer based in İzmir, Turkey. My work spans backend services, full-stack applications, and production systems—from APIs and data pipelines to cloud deployment and scalable architecture.
+export const aboutProfile = `I am Dilber Özer, a Computer Engineer based in İzmir, Turkey. My work spans backend services, full-stack applications, and production systems—from APIs and data pipelines to cloud deployment and scalable architecture.
 
 Across internships and industry roles I have built and shipped software end to end: designing REST and GraphQL services, working with SQL and ETL flows, integrating ML and AI features where they add product value (speech, NLP, retrieval, and forecasting), and running solutions reliably on AWS, Kubernetes, and Docker. I am equally comfortable prototyping in Python as with React clients, FastAPI/Flask backends, automation, and containerized deployment.
 
@@ -17,6 +17,7 @@ export const aboutCertifications = [
   "Python Programming",
   "Automotive camp",
   "Docker: Training from basic to advanced",
+  "AWS Karpenter",
   "English B2",
 ] as const;
 

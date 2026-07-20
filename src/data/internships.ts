@@ -33,7 +33,7 @@ export const internshipExperiences: InternshipExperience[] = [
   {
     id: "bilsoft-callmetric",
     company: "CallMetric AI / BilSoft (CRM)",
-    role: "Software Engineer",
+    role: "Artificial Intelligence Developer",
     period: "Jun 2025 – Present",
     location: "İzmir & Düzce, Turkey",
     roleDescription:
@@ -106,7 +106,7 @@ export const internshipExperiences: InternshipExperience[] = [
   {
     id: "norm-digital-vinter",
     company: "Norm Digital (HR) / Vinter AI Recruitment",
-    role: "Software Engineer",
+    role: "Artificial Intelligence Developer",
     period: "2025",
     location: "Turkey",
     roleDescription:
@@ -133,7 +133,7 @@ export const internshipExperiences: InternshipExperience[] = [
   {
     id: "expertel-proceedit",
     company: "Expertel SA / Proceedit (FinTech)",
-    role: "Software Engineer",
+    role: "Artificial Intelligence Developer",
     period: "Aug 2024 – Feb 2025",
     location: "Barcelona, Spain",
     roleDescription:

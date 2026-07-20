@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1608 2206" role="img" aria-label="Cinema Night WinForms UML class diagram">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fadce4"/>
+      <stop offset="100%" stop-color="#e8a0b4"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow-head" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8f3d58"/>
+    </marker>
+    <filter id="cardShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#9a3d5c" flood-opacity="0.15"/>
+    </filter>
+    <style>
+      .title { font: 700 38px Georgia, serif; fill: #fff; letter-spacing: 0.06em; }
+      .subtitle { font: 600 16px "Segoe UI", Arial, sans-serif; fill: rgba(255,255,255,0.95); }
+      .card-title { font: 700 16px "Segoe UI", Arial, sans-serif; fill: #fff; }
+      .card-stereo { font: 600 11px "Segoe UI", Arial, sans-serif; fill: rgba(255,255,255,0.9); }
+      .section-label { font: 700 11px "Segoe UI", Arial, sans-serif; fill: #b84d68; }
+      .card-text { font: 11.5px Consolas, monospace; fill: #452030; }
+      .edge-label { font: 600 11px "Segoe UI", Arial, sans-serif; fill: #7a2f45; }
+      .arrow { fill: none; stroke: #8f3d58; stroke-width: 2.2; marker-end: url(#arrow-head); }
+    </style>
+  </defs>
+
+  <rect width="1608" height="2206" fill="url(#bgGrad)"/>
+  <rect width="1608" height="2206" fill="url(#grid)"/>
+  <text x="804" y="64" text-anchor="middle" class="title">CINEMA NIGHT</text>
+  <text x="804" y="96" text-anchor="middle" class="subtitle">WinForms UML Class Diagram</text>
+
+  <g id="layer-classes">
+  <g id="class-login" transform="translate(64, 140)">
+    <defs>
+      <clipPath id="clip-login">
+        <rect width="400" height="390" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="390" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">Login_UyeOl</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-login)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- adminForm: Admin = new Admin()</text>
+    <text x="16" y="89" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="104" class="card-text">- form1: Form1</text>
+    <text x="16" y="119" class="card-text">- premiumForm: Premium = new Premium()</text>
+    <text x="16" y="134" class="card-text">- profilform: Profilim = new Profilim()</text>
+    <text x="16" y="149" class="card-text">- standartform: Standart = new Standart()</text>
+    <text x="14" y="188" class="section-label">Methods</text>
+    <line x1="12" y1="194" x2="388" y2="194" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="196" class="card-text">- AdTextBox_KeyPress(): void</text>
+    <text x="16" y="211" class="card-text">- button1_Click(): void</text>
+    <text x="16" y="226" class="card-text">- KullaniciAdiTextBox_KeyPress(): void</text>
+    <text x="16" y="241" class="card-text">- KullaniciGirisKaydet(kullaniciID: int): void</text>
+    <text x="16" y="256" class="card-text">+ Login_UyeOl(form1: Form1)</text>
+    <text x="16" y="271" class="card-text">- Login_UyeOl_Load(): void</text>
+    <text x="16" y="286" class="card-text">- LoginKullaniciAdi_KeyPress(): void</text>
+    <text x="16" y="301" class="card-text">- LoginSifre_KeyPress(): void</text>
+    <text x="16" y="316" class="card-text">- SifreTextBox_KeyPress(): void</text>
+    <text x="16" y="331" class="card-text">- SoyadTextBox_KeyPress(): void</text>
+    <text x="16" y="346" class="card-text">- TCTextBox_KeyPress(): void</text>
+    <text x="16" y="361" class="card-text">- UyeOlBtn_Click(): void</text>
+    </g>
+  </g>
+  <g id="class-form1" transform="translate(64, 620)">
+    <defs>
+      <clipPath id="clip-form1">
+        <rect width="400" height="315" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="315" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">Form1</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-form1)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="89" class="card-text">- filmOffset: int = 0</text>
+    <text x="14" y="128" class="section-label">Methods</text>
+    <line x1="12" y1="134" x2="388" y2="134" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="136" class="card-text">- button11_Click(): void</text>
+    <text x="16" y="151" class="card-text">- button12_Click(): void</text>
+    <text x="16" y="166" class="card-text">- button4_Click(): void</text>
+    <text x="16" y="181" class="card-text">- button5_Click(): void</text>
+    <text x="16" y="196" class="card-text">- button8_Click(): void</text>
+    <text x="16" y="211" class="card-text">- button9_Click(): void</text>
+    <text x="16" y="226" class="card-text">- FilmDetayGoster(filmSira: int): void</text>
+    <text x="16" y="241" class="card-text">- FilmListesiniGuncelle(): void</text>
+    <text x="16" y="256" class="card-text">+ Form1()</text>
+    <text x="16" y="271" class="card-text">- Form1_Load(): void</text>
+    <text x="16" y="286" class="card-text">- pictureBox2_Click(): void</text>
+    </g>
+  </g>
+  <g id="class-standart" transform="translate(604, 140)">
+    <defs>
+      <clipPath id="clip-standart">
+        <rect width="400" height="587" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="587" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">Standart</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-standart)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="89" class="card-text">- detayForm: FilmDetaylariStndrt = new</text>
+    <text x="16" y="104" class="card-text">FilmDetayla...</text>
+    <text x="16" y="119" class="card-text">- filmOffset: int = 0</text>
+    <text x="16" y="134" class="card-text">- profilForm: Profilim = new Profilim()</text>
+    <text x="14" y="173" class="section-label">Methods</text>
+    <line x1="12" y1="179" x2="388" y2="179" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="181" class="card-text">- AramaBtn_Click(): void</text>
+    <text x="16" y="196" class="card-text">- button11_Click(): void</text>
+    <text x="16" y="211" class="card-text">- button12_Click(): void</text>
+    <text x="16" y="226" class="card-text">- button4_Click(): void</text>
+    <text x="16" y="241" class="card-text">- FilmDetayGoster(filmSira: int): void</text>
+    <text x="16" y="256" class="card-text">- FilmGetir_Click(): void</text>
+    <text x="16" y="271" class="card-text">- FilmGelir(filmId: int): void</text>
+    <text x="16" y="286" class="card-text">- FilmIstatistik_Cek(clck): void</text>
+    <text x="16" y="301" class="card-text">- FilmListesiniGuncelle(): void</text>
+    <text x="16" y="316" class="card-text">- FilmSirala(sorgu: string): void</text>
+    <text x="16" y="331" class="card-text">- KelimeGoreAra(sorgu: string, arananKelime:</text>
+    <text x="16" y="346" class="card-text">string): void</text>
+    <text x="16" y="361" class="card-text">- NotificationGoster(filmAd: string): void</text>
+    <text x="16" y="376" class="card-text">- PuanSecim_SelectedIndexChanged(): void</text>
+    <text x="16" y="391" class="card-text">+ Standart()</text>
+    <text x="16" y="406" class="card-text">- Standart_FormClosing(): void</text>
+    <text x="16" y="421" class="card-text">- Standart_Load(): void</text>
+    <text x="16" y="436" class="card-text">- tabControl1_SelectedIndexChanged(): void</text>
+    <text x="16" y="451" class="card-text">- Temizle(): void</text>
+    <text x="16" y="466" class="card-text">- TurSecim_SelectedIndexChanged(): void</text>
+    <text x="16" y="481" class="card-text">- YeniFilmleriGoster(kullaniciId: int): void</text>
+    <text x="16" y="496" class="card-text">- YilaGoreAra(sorgu: string, yil: long): void</text>
+    <text x="16" y="511" class="card-text">- YilSecim_SelectedIndexChanged(): void</text>
+    <text x="14" y="550" class="section-label">Property</text>
+    <line x1="12" y1="556" x2="388" y2="556" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="558" class="card-text">+ KullaniciID(): int</text>
+    </g>
+  </g>
+  <g id="class-admin" transform="translate(604, 817)">
+    <defs>
+      <clipPath id="clip-admin">
+        <rect width="400" height="557" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="557" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">Admin</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-admin)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="89" class="card-text">- detayForm: FilmDetaylari = new FilmDetaylari()</text>
+    <text x="16" y="104" class="card-text">- filmOffset: int = 0</text>
+    <text x="16" y="119" class="card-text">- profilForm: Profilim = new Profilim()</text>
+    <text x="14" y="158" class="section-label">Methods</text>
+    <line x1="12" y1="164" x2="388" y2="164" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="166" class="card-text">+ Admin()</text>
+    <text x="16" y="181" class="card-text">- Admin_FormClosing(): void</text>
+    <text x="16" y="196" class="card-text">- Admin_Load(): void</text>
+    <text x="16" y="211" class="card-text">- AramaBtn_Click(): void</text>
+    <text x="16" y="226" class="card-text">- button11_Click(): void</text>
+    <text x="16" y="241" class="card-text">- button12_Click(): void</text>
+    <text x="16" y="256" class="card-text">- button4_Click(): void</text>
+    <text x="16" y="271" class="card-text">- button5_Click(): void</text>
+    <text x="16" y="286" class="card-text">- FilmDetayGoster(filmSira: int): void</text>
+    <text x="16" y="301" class="card-text">- FilmGetir_Click(): void</text>
+    <text x="16" y="316" class="card-text">- FilmGetir(filmId: int): void</text>
+    <text x="16" y="331" class="card-text">- FilmIstatistik_Cek(clck): void</text>
+    <text x="16" y="346" class="card-text">- FilmListesiniGuncelle(): void</text>
+    <text x="16" y="361" class="card-text">- FilmSirala(sorgu: string): void</text>
+    <text x="16" y="376" class="card-text">- KelimeGoreAra(sorgu: string, arananKelime:</text>
+    <text x="16" y="391" class="card-text">string): void</text>
+    <text x="16" y="406" class="card-text">- PuanSecim_SelectedIndexChanged(): void</text>
+    <text x="16" y="421" class="card-text">- tabControl1_SelectedIndexChanged(): void</text>
+    <text x="16" y="436" class="card-text">- Temizle(): void</text>
+    <text x="16" y="451" class="card-text">- TurSecim_SelectedIndexChanged(): void</text>
+    <text x="16" y="466" class="card-text">- YilaGoreAra(sorgu: string, yil: long): void</text>
+    <text x="16" y="481" class="card-text">- YilSecim_SelectedIndexChanged(): void</text>
+    <text x="14" y="520" class="section-label">Property</text>
+    <line x1="12" y1="526" x2="388" y2="526" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="528" class="card-text">+ KullaniciID(): int</text>
+    </g>
+  </g>
+  <g id="class-premium" transform="translate(604, 1464)">
+    <defs>
+      <clipPath id="clip-premium">
+        <rect width="400" height="572" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="572" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">Premium</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-premium)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="89" class="card-text">- detayForm: FilmDetaylari = new FilmDetaylari()</text>
+    <text x="16" y="104" class="card-text">- filmOffset: int = 0</text>
+    <text x="16" y="119" class="card-text">- profilForm: Profilim = new Profilim()</text>
+    <text x="14" y="158" class="section-label">Methods</text>
+    <line x1="12" y1="164" x2="388" y2="164" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="166" class="card-text">- AramaBtn_Click(): void</text>
+    <text x="16" y="181" class="card-text">- button11_Click(): void</text>
+    <text x="16" y="196" class="card-text">- button12_Click(): void</text>
+    <text x="16" y="211" class="card-text">- button4_Click(): void</text>
+    <text x="16" y="226" class="card-text">- FilmDetayGoster(filmSira: int): void</text>
+    <text x="16" y="241" class="card-text">- FilmGetir_Click(): void</text>
+    <text x="16" y="256" class="card-text">- FilmGelir(filmId: int): void</text>
+    <text x="16" y="271" class="card-text">- FilmIstatistik_Cek(clck): void</text>
+    <text x="16" y="286" class="card-text">- FilmListesiniGuncelle(): void</text>
+    <text x="16" y="301" class="card-text">- FilmSirala(sorgu: string): void</text>
+    <text x="16" y="316" class="card-text">- KelimeGoreAra(sorgu: string, arananKelime:</text>
+    <text x="16" y="331" class="card-text">string): void</text>
+    <text x="16" y="346" class="card-text">- NotificationGoster(filmAd: string): void</text>
+    <text x="16" y="361" class="card-text">+ Premium()</text>
+    <text x="16" y="376" class="card-text">- Premium_FormClosing(): void</text>
+    <text x="16" y="391" class="card-text">- Premium_Load(): void</text>
+    <text x="16" y="406" class="card-text">- PuanSecim_SelectedIndexChanged(): void</text>
+    <text x="16" y="421" class="card-text">- tabControl1_SelectedIndexChanged(): void</text>
+    <text x="16" y="436" class="card-text">- Temizle(): void</text>
+    <text x="16" y="451" class="card-text">- TurSecim_SelectedIndexChanged(): void</text>
+    <text x="16" y="466" class="card-text">- YeniFilmleriGoster(kullaniciId: int): void</text>
+    <text x="16" y="481" class="card-text">- YilaGoreAra(sorgu: string, yil: long): void</text>
+    <text x="16" y="496" class="card-text">- YilSecim_SelectedIndexChanged(): void</text>
+    <text x="14" y="535" class="section-label">Property</text>
+    <line x1="12" y1="541" x2="388" y2="541" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="543" class="card-text">+ KullaniciID(): int</text>
+    </g>
+  </g>
+  <g id="class-detay-stndrt" transform="translate(1144, 140)">
+    <defs>
+      <clipPath id="clip-detay-stndrt">
+        <rect width="400" height="302" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="302" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">FilmDetaylariStndrt</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-detay-stndrt)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="89" class="card-text">- yorumOffset: int = 0</text>
+    <text x="14" y="128" class="section-label">Methods</text>
+    <line x1="12" y1="134" x2="388" y2="134" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="136" class="card-text">- button2_Click(): void</text>
+    <text x="16" y="151" class="card-text">- FilmDetaylariniGoster(filmDetay: DataRow):</text>
+    <text x="16" y="166" class="card-text">void</text>
+    <text x="16" y="181" class="card-text">- FilmDetaylariStndrt()</text>
+    <text x="16" y="196" class="card-text">- FilmDetaylariStndrt_Load(): void</text>
+    <text x="16" y="211" class="card-text">- YorumListesiniGuncelle(): void</text>
+    <text x="14" y="250" class="section-label">Property</text>
+    <line x1="12" y1="256" x2="388" y2="256" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="258" class="card-text">+ FilmDetay(): DataRow</text>
+    <text x="16" y="273" class="card-text">+ KullaniciID(): int</text>
+    </g>
+  </g>
+  <g id="class-detay" transform="translate(1144, 532)">
+    <defs>
+      <clipPath id="clip-detay">
+        <rect width="400" height="332" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="332" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">FilmDetaylari</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-detay)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="16" y="89" class="card-text">- yorumOffset: int = 0</text>
+    <text x="14" y="128" class="section-label">Methods</text>
+    <line x1="12" y1="134" x2="388" y2="134" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="136" class="card-text">- button2_Click(): void</text>
+    <text x="16" y="151" class="card-text">+ FilmDetaylari()</text>
+    <text x="16" y="166" class="card-text">- FilmDetaylari_Load(): void</text>
+    <text x="16" y="181" class="card-text">- FilmDetaylariniGoster(filmDetay: DataRow):</text>
+    <text x="16" y="196" class="card-text">void</text>
+    <text x="16" y="211" class="card-text">- KaydetBtn_Click(): void</text>
+    <text x="16" y="226" class="card-text">- YorumEkleBtn_Click(): void</text>
+    <text x="16" y="241" class="card-text">- YorumListesiniGuncelle(): void</text>
+    <text x="14" y="280" class="section-label">Property</text>
+    <line x1="12" y1="286" x2="388" y2="286" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="288" class="card-text">+ FilmDetay(): DataRow</text>
+    <text x="16" y="303" class="card-text">+ KullaniciID(): int</text>
+    </g>
+  </g>
+  <g id="class-profilim" transform="translate(1144, 954)">
+    <defs>
+      <clipPath id="clip-profilim">
+        <rect width="400" height="512" rx="12"/>
+      </clipPath>
+    </defs>
+    <rect width="400" height="512" rx="12" fill="#fffbfc" stroke="#dea0b2" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="400" height="44" rx="12" fill="#c45674"/>
+    <rect y="34" width="400" height="10" fill="#c45674"/>
+    <text x="16" y="29" class="card-title">Profilim</text>
+    <text x="384" y="29" text-anchor="end" class="card-stereo">Form</text>
+    <g clip-path="url(#clip-profilim)">
+    <text x="14" y="66" class="section-label">Fields / Attributes</text>
+    <line x1="12" y1="72" x2="388" y2="72" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="74" class="card-text">- connectionString: string = "PGSQL Baglanti"</text>
+    <text x="14" y="113" class="section-label">Methods</text>
+    <line x1="12" y1="119" x2="388" y2="119" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="121" class="card-text">- Adi_KeyPress(): void</text>
+    <text x="16" y="136" class="card-text">- BuFilmListedeMi(kullaniciId: int, filmID:</text>
+    <text x="16" y="151" class="card-text">int): bool</text>
+    <text x="16" y="166" class="card-text">- button1_Click(): void</text>
+    <text x="16" y="181" class="card-text">- button2_Click(): void</text>
+    <text x="16" y="196" class="card-text">- button5_Click(): void</text>
+    <text x="16" y="211" class="card-text">- ComboBooxFilmEkle(comboBox: ComboBox): void</text>
+    <text x="16" y="226" class="card-text">- FilmBul(filmAd: string): int</text>
+    <text x="16" y="241" class="card-text">- FilmSil(filmAd: string): void</text>
+    <text x="16" y="256" class="card-text">- HesapSil_Click(): void</text>
+    <text x="16" y="271" class="card-text">- IzlenenFilmEkle(kullanici_ID: int, filmId:</text>
+    <text x="16" y="286" class="card-text">int): void</text>
+    <text x="16" y="301" class="card-text">- IzlenenFilmleri_CellContentClick(): void</text>
+    <text x="16" y="316" class="card-text">- IzlenenFilmleriYukle(): void</text>
+    <text x="16" y="331" class="card-text">- KullaniciBilgileriniGuncelle(): void</text>
+    <text x="16" y="346" class="card-text">- KullaniciBilgileriniYukle(): void</text>
+    <text x="16" y="361" class="card-text">- KullaniciG_KeyPress(): void</text>
+    <text x="16" y="376" class="card-text">+ Profilim()</text>
+    <text x="16" y="391" class="card-text">- Profilim_Load(): void</text>
+    <text x="16" y="406" class="card-text">- SilVeCikisYap(): void</text>
+    <text x="16" y="421" class="card-text">- SoyadiG_KeyPress(): void</text>
+    <text x="16" y="436" class="card-text">- TC_G_KeyPress(): void</text>
+    <text x="14" y="475" class="section-label">Property</text>
+    <line x1="12" y1="481" x2="388" y2="481" stroke="#f0c4d0" stroke-width="1"/>
+    <text x="16" y="483" class="card-text">+ KullaniciID(): int</text>
+    </g>
+  </g>
+  </g>
+
+  <g id="layer-arrows">
+  <g id="arrow-0">
+    <path class="arrow" d="M 464 335 L 534 335 L 534 433.5 L 604 433.5"/>
+    <rect x="540" y="310" width="112.2" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="548" y="325" class="edge-label">-standartForm</text>
+  </g>
+  <g id="arrow-1">
+    <path class="arrow" d="M 464 335 L 534 335 L 534 1095.5 L 604 1095.5"/>
+    <rect x="540" y="310" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="548" y="325" class="edge-label">-adminForm</text>
+  </g>
+  <g id="arrow-2">
+    <path class="arrow" d="M 464 335 L 534 335 L 534 1750 L 604 1750"/>
+    <rect x="540" y="310" width="104.80000000000001" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="548" y="325" class="edge-label">-premiumForm</text>
+  </g>
+  <g id="arrow-3">
+    <path class="arrow" d="M 264 530 L 264 575 L 264 575 L 264 620"/>
+    <rect x="272" y="552" width="60.400000000000006" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="280" y="567" class="edge-label">-form1</text>
+  </g>
+  <g id="arrow-4">
+    <path class="arrow" d="M 1004 433.5 L 1074 433.5 L 1074 291 L 1144 291"/>
+    <rect x="1080" y="266" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1088" y="281" class="edge-label">-detayForm</text>
+  </g>
+  <g id="arrow-5">
+    <path class="arrow" d="M 1004 433.5 L 1114 433.5 L 1114 1210 L 1144 1210"/>
+    <rect x="1120" y="408.5" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1128" y="423.5" class="edge-label">profilForm</text>
+  </g>
+  <g id="arrow-6">
+    <path class="arrow" d="M 1004 1095.5 L 1074 1095.5 L 1074 698 L 1144 698"/>
+    <rect x="1080" y="673" width="82.60000000000001" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1088" y="688" class="edge-label">detayForm</text>
+  </g>
+  <g id="arrow-7">
+    <path class="arrow" d="M 1004 1095.5 L 1114 1095.5 L 1114 1210 L 1144 1210"/>
+    <rect x="1120" y="1070.5" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1128" y="1085.5" class="edge-label">profilForm</text>
+  </g>
+  <g id="arrow-8">
+    <path class="arrow" d="M 1004 1750 L 1154 1750 L 1154 698 L 1144 698"/>
+    <rect x="1160" y="673" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1168" y="688" class="edge-label">-detayForm</text>
+  </g>
+  <g id="arrow-9">
+    <path class="arrow" d="M 1004 1750 L 1194 1750 L 1194 1210 L 1144 1210"/>
+    <rect x="1200" y="1185" width="97.4" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1208" y="1200" class="edge-label">-profilForm</text>
+  </g>
+  <g id="arrow-10">
+    <path class="arrow" d="M 1344 954 L 1344 775 L 804 775 L 804 727"/>
+    <rect x="1354" y="776" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1362" y="791" class="edge-label">-profilfim</text>
+  </g>
+  <g id="arrow-11">
+    <path class="arrow" d="M 1144 1210 L 1060 1210 L 1060 1095.5 L 1004 1095.5"/>
+    <rect x="1068" y="1187" width="90" height="22" rx="5" fill="#fff" fill-opacity="0.94" stroke="#d4849a"/>
+    <text x="1076" y="1202" class="edge-label">-profilfim</text>
+  </g>
+  </g>
+</svg>

@@ -49,6 +49,12 @@
   z-index: 1;
 }
 
+@media (min-width: 933px) {
+  .sidebar {
+    min-width: 220px;
+  }
+}
+
 @media (max-width: 932px) {
   .inner {
     display: block;

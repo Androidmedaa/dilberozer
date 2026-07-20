@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Dilber Özer — Computer Engineering student, Software Engineer. Education, certifications, and competitions.",
+    "Dilber Özer — Computer Engineering student, Computer Engineer. Education, certifications, and competitions.",
 };
 
 export default function AboutPage() {

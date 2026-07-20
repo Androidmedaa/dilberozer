@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
@@ -32,12 +32,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <div
             className={`${styles.imageWrap} ${project.coverFit === "contain" ? styles.imageWrapContain : ""}`}
           >
-            <Image
+            <PortfolioImage
               src={project.coverImage}
               alt={project.title}
               fill
               sizes="(max-width: 540px) 100vw, (max-width: 768px) 50vw, 40vw"
-              quality={90}
               priority={index < 2}
               className={`${styles.image} ${project.coverFit === "contain" ? styles.imageContain : ""}`}
               style={{

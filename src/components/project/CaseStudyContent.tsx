@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   CASE_STUDY_SECTION_ORDER,
@@ -9,6 +8,7 @@ import {
   type CaseStudySection,
 } from "@/data/projects";
 import { ImageLightbox, type LightboxImage } from "@/components/ui/ImageLightbox";
+import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import styles from "./case-study.module.css";
 
 type CaseStudyContentProps = {
@@ -20,6 +20,16 @@ type SectionBlockProps = {
   getLightboxIndex: (image: NonNullable<CaseStudySection["images"]>[number]) => number;
   onOpenLightbox: (index: number) => void;
 };
+
+function imageDimensions(image: NonNullable<CaseStudySection["images"]>[number]) {
+  if (image.width && image.height) {
+    return { width: image.width, height: image.height };
+  }
+  if (image.src.toLowerCase().endsWith(".svg")) {
+    return { width: 980, height: 706 };
+  }
+  return { width: 720, height: 480 };
+}
 
 function SectionBlock({ section, getLightboxIndex, onOpenLightbox }: SectionBlockProps) {
   return (
@@ -37,32 +47,55 @@ function SectionBlock({ section, getLightboxIndex, onOpenLightbox }: SectionBloc
       )}
       {section.images && section.images.length > 0 && (
         <div className={styles.imageGrid}>
-          {section.images.map((image, idx) => (
-            <figure key={image.src} className={styles.figure}>
+          {section.images.map((image, idx) => {
+            const { width, height } = imageDimensions(image);
+
+            return (
+            <figure
+              key={image.src}
+              className={`${styles.figure} ${image.fullWidth ? styles.figureFullWidth : ""}`}
+            >
               {image.href ? (
                 <a
                   href={image.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.imageLink}
+                  className={`${styles.imageLink} ${image.fullWidth ? styles.imageMediaFullWidth : ""}`}
                 >
-                  <Image src={image.src} alt={image.alt} width={720} height={480} />
+                  <PortfolioImage
+                    src={image.src}
+                    alt={image.alt}
+                    width={width}
+                    height={height}
+                    unoptimized={image.unoptimized}
+                    className={image.fullWidth ? styles.imageFullWidth : undefined}
+                  />
                 </a>
               ) : (
                 <button
                   type="button"
-                  className={styles.imageButton}
+                  className={`${styles.imageButton} ${image.fullWidth ? styles.imageMediaFullWidth : ""}`}
                   onClick={() => onOpenLightbox(getLightboxIndex(section.images![idx]))}
                   aria-label={`Open image: ${image.alt}`}
                 >
-                  <Image src={image.src} alt={image.alt} width={720} height={480} />
+                  <PortfolioImage
+                    src={image.src}
+                    alt={image.alt}
+                    width={width}
+                    height={height}
+                    unoptimized={image.unoptimized}
+                    className={image.fullWidth ? styles.imageFullWidth : undefined}
+                  />
                 </button>
               )}
               {image.caption && (
-                <figcaption className={styles.caption}>{image.caption}</figcaption>
+                <figcaption className={`${styles.caption} ${image.fullWidth ? styles.captionFullWidth : ""}`}>
+                  {image.caption}
+                </figcaption>
               )}
             </figure>
-          ))}
+            );
+          })}
         </div>
       )}
     </section>
@@ -136,6 +169,10 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
             src: image.src,
             alt: image.alt,
             caption: image.caption,
+            unoptimized: image.unoptimized ?? image.src.toLowerCase().endsWith(".svg"),
+            zoomSrc: image.zoomSrc,
+            zoomWidth: image.zoomWidth,
+            zoomHeight: image.zoomHeight,
           })),
       ),
     [renderedSections],
@@ -170,13 +207,12 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
       </header>
 
       <div className={`${styles.heroImage} ${fitContain ? styles.heroImageContain : ""}`}>
-        <Image
+        <PortfolioImage
           src={project.coverImage}
           alt={project.title}
           fill
           className={`${styles.heroImg} ${fitContain ? styles.heroImgContain : ""}`}
           sizes="(max-width: 932px) 100vw, 80vw"
-          quality={90}
           style={{
             objectFit: project.coverFit ?? "cover",
             objectPosition: project.coverObjectPosition ?? "center",
@@ -187,20 +223,9 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
 
       <div className={styles.header}>
         <div className={styles.meta}>
-          <p>
-            <strong>Role:</strong> <span>{project.role}</span>
-          </p>
-          <p>
-            <strong>Duration:</strong> <span>{project.duration}</span>
-          </p>
-          {project.course && (
+          {project.role && (
             <p>
-              <strong>Course:</strong> <span>{project.course}</span>
-            </p>
-          )}
-          {project.team && (
-            <p>
-              <strong>Team:</strong> <span>{project.team}</span>
+              <strong>Role:</strong> <span>{project.role}</span>
             </p>
           )}
           {project.repository && (

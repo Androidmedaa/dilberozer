@@ -26,11 +26,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dilber Özer — Software Engineer Portfolio",
+    default: "Dilber Özer — Computer Engineer Portfolio",
     template: "%s | Dilber Özer",
   },
   description:
-    "Software engineering portfolio — internships, full-stack projects, backend services, and production-focused case studies.",
+    "Computer engineering portfolio — internships, full-stack projects, backend services, and production-focused case studies.",
   openGraph: {
     type: "website",
     locale: "en_US",
