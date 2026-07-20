@@ -1033,14 +1033,18 @@ const rotaAiSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${rotaAiBase}/cover-explore.png`,
-        alt: "RotaAI Explore page",
-        caption: "Keşfet — discover destinations by interest",
+        src: `${rotaAiBase}/hero-desktop-mobile.png`,
+        alt: "RotaAI desktop and mobile product mockup",
+        caption: "RotaAI — responsive travel planning (desktop place detail + mobile discovery)",
+        fullWidth: true,
+        unoptimized: true,
       },
       {
-        src: `${rotaAiBase}/plan-create.png`,
-        alt: "AI plan creation",
-        caption: "AI ile Plan Oluştur — preferences and trip intensity",
+        src: `${rotaAiBase}/logo-concepts.png`,
+        alt: "RotaAI logo concept variations",
+        caption: "Brand explorations — pin, compass, route map, and RA monogram",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -1063,6 +1067,13 @@ const rotaAiSections: ProjectSections = {
       "Add stops to route; profile and auth-ready UI.",
     ],
     images: [
+      {
+        src: `${rotaAiBase}/mobile-journey-screens.png`,
+        alt: "RotaAI mobile journey screens",
+        caption: "Designed for the journey — discovery, AI assistant, favorites, and profile",
+        fullWidth: true,
+        unoptimized: true,
+      },
       {
         src: `${rotaAiBase}/place-detail.png`,
         alt: "Place detail page",
@@ -1091,6 +1102,11 @@ const rotaAiSections: ProjectSections = {
         src: `${rotaAiBase}/preferences.png`,
         alt: "Trip preferences form",
         caption: "Step 1 — date, duration, interests, region",
+      },
+      {
+        src: `${rotaAiBase}/plan-create.png`,
+        alt: "AI plan creation",
+        caption: "AI ile Plan Oluştur — preferences and trip intensity",
       },
     ],
   },
@@ -1461,7 +1477,8 @@ export const projects: Project[] = [
     year: "2025",
     shortDescription:
       "Discover places and build AI day-trip plans — React, .NET 9 API, Google Places, timed itineraries.",
-    coverImage: `${rotaAiBase}/cover-explore.png`,
+    coverImage: `${rotaAiBase}/hero-desktop-mobile.png`,
+    coverObjectPosition: "center top",
     role: "Full Stack Developer",
     duration: "Graduation project",
     technologies: [
