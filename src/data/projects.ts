@@ -46,7 +46,8 @@ export type Project = {
   category: string;
   year: string;
   shortDescription: string;
-  coverImage: string;
+  /** Optional — omit for placeholder / coming-soon projects */
+  coverImage?: string;
   role?: string;
   duration?: string;
   technologies: string[];
@@ -1205,6 +1206,26 @@ const otherSmallProjectsSections: ProjectSections = {
   },
 };
 
+function buildEmptySections(): ProjectSections {
+  const empty = (title: string, id: string): CaseStudySection => ({
+    id,
+    title,
+    content: "",
+  });
+
+  return {
+    projectOverview: empty("Project Overview", "project-overview"),
+    problemStatement: empty("Problem Statement", "problem-statement"),
+    objectives: empty("Objectives", "objectives"),
+    architecture: empty("Architecture", "architecture"),
+    technologies: empty("Technologies", "technologies"),
+    developmentProcess: empty("Development Process", "development-process"),
+    challenges: empty("Challenges", "challenges"),
+    results: empty("Results", "results"),
+    lessonsLearned: empty("Lessons Learned", "lessons-learned"),
+  };
+}
+
 function buildPlaceholderSections(seed: number): ProjectSections {
   const img = (n: number) => cover(seed * 10 + n);
   const placeholder = (title: string, id: string, text: string): CaseStudySection => ({
@@ -1510,6 +1531,18 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "glowla",
+    title: "Glowla",
+    category: "",
+    year: "",
+    shortDescription: "",
+    coverImage: "/projects/glowla/hero.png",
+    coverObjectPosition: "center",
+    technologies: [],
+    gallery: "work",
+    sections: buildEmptySections(),
+  },
+  {
     slug: "summer-internship-dashboard",
     title: "Internship Analytics Dashboard",
     category: "Internship Project",
@@ -1530,6 +1563,7 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 /** Homepage “Projects” gallery order */
 const WORK_GALLERY_ORDER: string[] = [
+  "glowla",
   "rota-ai",
   "flower-classification-ai",
   "cinema-night-film-management",

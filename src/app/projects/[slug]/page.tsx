@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: project.title,
-    description: project.shortDescription,
+    description: project.shortDescription || undefined,
     openGraph: {
       title: project.title,
-      description: project.shortDescription,
-      images: [{ url: project.coverImage }],
+      description: project.shortDescription || undefined,
+      ...(project.coverImage ? { images: [{ url: project.coverImage }] } : {}),
     },
   };
 }

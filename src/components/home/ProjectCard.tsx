@@ -30,27 +30,33 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       >
         <div className={styles.container}>
           <div
-            className={`${styles.imageWrap} ${project.coverFit === "contain" ? styles.imageWrapContain : ""}`}
+            className={`${styles.imageWrap} ${project.coverFit === "contain" ? styles.imageWrapContain : ""} ${!project.coverImage ? styles.imageWrapEmpty : ""}`}
           >
-            <PortfolioImage
-              src={project.coverImage}
-              alt={project.title}
-              fill
-              sizes="(max-width: 540px) 100vw, (max-width: 768px) 50vw, 40vw"
-              priority={index < 2}
-              className={`${styles.image} ${project.coverFit === "contain" ? styles.imageContain : ""}`}
-              style={{
-                objectFit: project.coverFit ?? "cover",
-                objectPosition: project.coverObjectPosition ?? "center",
-              }}
-            />
+            {project.coverImage ? (
+              <PortfolioImage
+                src={project.coverImage}
+                alt={project.title}
+                fill
+                sizes="(max-width: 540px) 100vw, (max-width: 768px) 50vw, 40vw"
+                priority={index < 2}
+                className={`${styles.image} ${project.coverFit === "contain" ? styles.imageContain : ""}`}
+                style={{
+                  objectFit: project.coverFit ?? "cover",
+                  objectPosition: project.coverObjectPosition ?? "center",
+                }}
+              />
+            ) : (
+              <div className={styles.emptyCover} aria-hidden="true" />
+            )}
             <span className={styles.overlay} aria-hidden="true" />
             <div className={styles.detailsWrap}>
               <div className={styles.details}>
                 <div className={styles.detailsInner}>
-                  <div className={styles.date}>{project.year}</div>
+                  {project.year ? <div className={styles.date}>{project.year}</div> : null}
                   <h2 className={styles.title}>{project.title}</h2>
-                  <p className={styles.category}>{project.category}</p>
+                  {project.category ? (
+                    <p className={styles.category}>{project.category}</p>
+                  ) : null}
                   <p className={styles.cta}>View Case Study</p>
                 </div>
               </div>
