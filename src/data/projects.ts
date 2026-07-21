@@ -237,19 +237,18 @@ const semaAiSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${semaBase}/sema_image1.png`,
-        alt: "SEMA dashboard — document library",
-        caption: "Document workspace with folders, search, and AI Q&A",
+        src: `${semaBase}/hero.png`,
+        alt: "SEMA hero — AI document search and summarization",
+        caption: "SEMA — semantic document workspace powered by Gemini",
+        fullWidth: true,
+        unoptimized: true,
       },
       {
-        src: `${semaBase}/sema_image2.png`,
-        alt: "SEMA text summarization screen",
-        caption: "Text Summarization — adjustable length and language",
-      },
-      {
-        src: `${semaBase}/sema_image3.png`,
-        alt: "SEMA application interface",
-        caption: "Product UI — semantic analysis workflow",
+        src: `${semaBase}/logo-concepts.png`,
+        alt: "SEMA logo concept variations",
+        caption: "Brand explorations — SEMA logo concepts",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -275,9 +274,11 @@ const semaAiSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${semaBase}/sema_image2.png`,
-        alt: "Text summarization feature",
-        caption: "Paste or type text, set length % and language, then summarize",
+        src: `${semaBase}/document-workspace.png`,
+        alt: "SEMA document workspace",
+        caption: "Document workspace — library, folders, search, and AI tools",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -295,9 +296,11 @@ const semaAiSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${semaBase}/sema_image3.png`,
-        alt: "SEMA UI architecture in practice",
-        caption: "Client–API–Firebase flow reflected in the production UI",
+        src: `${semaBase}/two-paths.png`,
+        alt: "SEMA two user paths",
+        caption: "Two paths — search your library or ask AI with grounded sources",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -327,6 +330,15 @@ const semaAiSections: ProjectSections = {
       "Soft-delete trash to fix reappearing deleted files; folder hierarchy and breadcrumbs.",
       "Test matrix T-01–T-05 covering upload, network errors, and Q&A source display.",
     ],
+    images: [
+      {
+        src: `${semaBase}/how-it-works.png`,
+        alt: "How SEMA works overview",
+        caption: "How it works — upload, index, search, ask, and summarize",
+        fullWidth: true,
+        unoptimized: true,
+      },
+    ],
   },
   challenges: {
     id: "challenges",
@@ -353,13 +365,6 @@ const semaAiSections: ProjectSections = {
       "Open source: github.com/Androidmedaa/sema-ai-summarizer.",
       "AI features active when GEMINI_API_KEY is set; graceful fallback otherwise.",
       "English UI and technical documentation suitable for portfolio presentation.",
-    ],
-    images: [
-      {
-        src: `${semaBase}/sema_image1.png`,
-        alt: "SEMA results — document management",
-        caption: "Shipped document library with AI-powered workflows",
-      },
     ],
   },
   lessonsLearned: {
@@ -1348,7 +1353,7 @@ export const projects: Project[] = [
     year: "2026",
     shortDescription:
       "Semantic search, grounded Q&A, and AI summaries on PDF/TXT — React, Express, Firebase, Gemini API.",
-    coverImage: `${semaBase}/sema_image2.png`,
+    coverImage: `${semaBase}/hero.png`,
     coverObjectPosition: "center top",
     role: "Full Stack Developer",
     duration: "BİL440 Final Project · Fall 2025–26",
