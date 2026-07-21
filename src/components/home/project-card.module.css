@@ -58,6 +58,17 @@
   width: 100%;
 }
 
+.imageWrapEmpty {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(61, 139, 154, 0.18), transparent 55%),
+    linear-gradient(160deg, #0b1f33 0%, #12324a 45%, #0a1624 100%);
+}
+
+.emptyCover {
+  inset: 0;
+  position: absolute;
+}
+
 .imageWrap::after {
   background: linear-gradient(
     135deg,

@@ -31,13 +31,23 @@ function imageDimensions(image: NonNullable<CaseStudySection["images"]>[number])
   return { width: 720, height: 480 };
 }
 
+function sectionHasContent(section: CaseStudySection) {
+  return Boolean(
+    section.content.trim() ||
+      (section.bullets && section.bullets.length > 0) ||
+      (section.images && section.images.length > 0),
+  );
+}
+
 function SectionBlock({ section, getLightboxIndex, onOpenLightbox }: SectionBlockProps) {
   return (
     <section className={styles.section} id={section.id} aria-labelledby={`${section.id}-title`}>
       <h2 className={styles.sectionTitle} id={`${section.id}-title`}>
         {section.title}
       </h2>
-      <p className={styles.sectionBody}>{section.content}</p>
+      {section.content.trim() ? (
+        <p className={styles.sectionBody}>{section.content}</p>
+      ) : null}
       {section.bullets && section.bullets.length > 0 && (
         <ul className={styles.bulletList}>
           {section.bullets.map((item) => (
@@ -154,10 +164,18 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
   const fitContain = project.coverFit === "contain";
   const renderedSections = useMemo(
     () =>
-      isCollection
+      (isCollection
         ? [sections.projectOverview]
-        : CASE_STUDY_SECTION_ORDER.map((key) => sections[key]),
+        : CASE_STUDY_SECTION_ORDER.map((key) => sections[key])
+      ).filter(sectionHasContent),
     [isCollection, sections],
+  );
+
+  const showMeta = Boolean(
+    project.role ||
+      project.repository ||
+      project.category.trim() ||
+      project.technologies.length > 0,
   );
 
   const lightboxImages = useMemo<LightboxImage[]>(
@@ -206,64 +224,76 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
         <h1 className={styles.pageTitle}>{project.title}</h1>
       </header>
 
-      <div className={`${styles.heroImage} ${fitContain ? styles.heroImageContain : ""}`}>
-        <PortfolioImage
-          src={project.coverImage}
-          alt={project.title}
-          fill
-          className={`${styles.heroImg} ${fitContain ? styles.heroImgContain : ""}`}
-          sizes="(max-width: 932px) 100vw, 80vw"
-          style={{
-            objectFit: project.coverFit ?? "cover",
-            objectPosition: project.coverObjectPosition ?? "center",
-          }}
-          priority
-        />
-      </div>
-
-      <div className={styles.header}>
-        <div className={styles.meta}>
-          {project.role && (
-            <p>
-              <strong>Role:</strong> <span>{project.role}</span>
-            </p>
-          )}
-          {project.repository && (
-            <p>
-              <strong>Repository:</strong>{" "}
-              <a
-                href={project.repository}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.repoLink}
-              >
-                {project.repository.replace("https://github.com/", "")}
-              </a>
-            </p>
-          )}
-          <p>
-            <strong>Category:</strong> <span>{project.category}</span>
-          </p>
-          <p>
-            <strong>Technologies:</strong>
-          </p>
-          <ul className={styles.techList}>
-            {project.technologies.map((tech) => (
-              <li key={tech} className={styles.techTag}>
-                {tech}
-              </li>
-            ))}
-          </ul>
+      {project.coverImage ? (
+        <div className={`${styles.heroImage} ${fitContain ? styles.heroImageContain : ""}`}>
+          <PortfolioImage
+            src={project.coverImage}
+            alt={project.title}
+            fill
+            className={`${styles.heroImg} ${fitContain ? styles.heroImgContain : ""}`}
+            sizes="(max-width: 932px) 100vw, 80vw"
+            style={{
+              objectFit: project.coverFit ?? "cover",
+              objectPosition: project.coverObjectPosition ?? "center",
+            }}
+            priority
+          />
         </div>
-      </div>
+      ) : null}
+
+      {showMeta ? (
+        <div className={styles.header}>
+          <div className={styles.meta}>
+            {project.role && (
+              <p>
+                <strong>Role:</strong> <span>{project.role}</span>
+              </p>
+            )}
+            {project.repository && (
+              <p>
+                <strong>Repository:</strong>{" "}
+                <a
+                  href={project.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.repoLink}
+                >
+                  {project.repository.replace("https://github.com/", "")}
+                </a>
+              </p>
+            )}
+            {project.category.trim() ? (
+              <p>
+                <strong>Category:</strong> <span>{project.category}</span>
+              </p>
+            ) : null}
+            {project.technologies.length > 0 ? (
+              <>
+                <p>
+                  <strong>Technologies:</strong>
+                </p>
+                <ul className={styles.techList}>
+                  {project.technologies.map((tech) => (
+                    <li key={tech} className={styles.techTag}>
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
 
       {isCollection ? (
         <>
-          <SectionBlock
-            section={sections.projectOverview}
-            getLightboxIndex={(image) => lightboxIndexMap.get(image) ?? -1}
-            onOpenLightbox={openLightboxAt}
-          />
+          {sectionHasContent(sections.projectOverview) ? (
+            <SectionBlock
+              section={sections.projectOverview}
+              getLightboxIndex={(image) => lightboxIndexMap.get(image) ?? -1}
+              onOpenLightbox={openLightboxAt}
+            />
+          ) : null}
           <div className={styles.miniProjectsList}>
             {project.miniProjects!.map((mini, index) => (
               <MiniProjectBlock key={mini.title} index={index} mini={mini} />
@@ -271,10 +301,10 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
           </div>
         </>
       ) : (
-        CASE_STUDY_SECTION_ORDER.map((key) => (
+        renderedSections.map((section) => (
           <SectionBlock
-            key={key}
-            section={sections[key]}
+            key={section.id}
+            section={section}
             getLightboxIndex={(image) => lightboxIndexMap.get(image) ?? -1}
             onOpenLightbox={openLightboxAt}
           />
