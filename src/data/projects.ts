@@ -395,14 +395,11 @@ const flowerClassificationSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${flowerBase}/cover.png`,
-        alt: "Sample images from the Flowers-5 dataset",
-        caption: "Flowers-5 — natural-scene images across five species",
-      },
-      {
-        src: `${flowerBase}/page-1.png`,
-        alt: "Project title slide",
-        caption: "Flower Classification — AI course report (May 2025)",
+        src: `${flowerBase}/product-flow.png`,
+        alt: "Flower AI product flow — upload, preprocess, classify, explain",
+        caption: "A prediction in four clear steps — upload through confidence explanation",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -411,13 +408,6 @@ const flowerClassificationSections: ProjectSections = {
     title: "Problem Statement",
     content:
       "Manual identification of flower species from photos is slow and error-prone. Automated image classification can support education, biodiversity apps, and e-commerce cataloging, but small custom datasets require careful preprocessing and transfer learning to avoid overfitting. This project asks which CNN architecture best classifies five flower types under a fixed train/val/test split.",
-    images: [
-      {
-        src: `${flowerBase}/page-2.png`,
-        alt: "Category distribution chart",
-        caption: "Class distribution across the selected five categories",
-      },
-    ],
   },
   objectives: {
     id: "features",
@@ -436,9 +426,11 @@ const flowerClassificationSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${flowerBase}/page-3.png`,
-        alt: "Data preprocessing workflow",
-        caption: "Resize, center crop, and normalization for model input",
+        src: `${flowerBase}/ml-background.png`,
+        alt: "Machine learning background for flower classification",
+        caption: "ML background — CNN architectures and transfer learning setup",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -456,14 +448,11 @@ const flowerClassificationSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${flowerBase}/page-4.png`,
-        alt: "VGG16 training accuracy and loss curves",
-        caption: "VGG16 — peak training accuracy ~90% at epoch 9",
-      },
-      {
-        src: `${flowerBase}/page-6.png`,
-        alt: "ResNet101 training metrics",
-        caption: "ResNet101 — validation accuracy ~93%, test accuracy 92%",
+        src: `${flowerBase}/fine-tuning.png`,
+        alt: "Fine-tuning strategy for flower classifiers",
+        caption: "Fine-tuning — frozen backbones and trainable classification heads",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -494,13 +483,6 @@ const flowerClassificationSections: ProjectSections = {
       "Logged misclassified test examples (e.g., rose vs. tulip, dandelion confusion).",
       "Built Flowers Prediction Website UI as final deliverable.",
     ],
-    images: [
-      {
-        src: `${flowerBase}/page-5.png`,
-        alt: "VGG16 test phase examples",
-        caption: "Test-set predictions and misclassification examples (VGG16)",
-      },
-    ],
   },
   challenges: {
     id: "challenges",
@@ -514,6 +496,15 @@ const flowerClassificationSections: ProjectSections = {
       "Choosing transfer learning vs. fine-tuning for a 5-class subset.",
       "Normalizing inputs to match ImageNet-pretrained expectations (rescale 1/255).",
     ],
+    images: [
+      {
+        src: `${flowerBase}/inference-limits.png`,
+        alt: "Inference limits and evaluation constraints",
+        caption: "Inference limits — small test set and species confusion trade-offs",
+        fullWidth: true,
+        unoptimized: true,
+      },
+    ],
   },
   results: {
     id: "results",
@@ -526,13 +517,6 @@ const flowerClassificationSections: ProjectSections = {
       "AlexNet — test 60% (9/22 wrong).",
       "Model comparison table documented in report (epochs, loss, test acc).",
       "Kaggle notebooks and best_model published for reproducibility.",
-    ],
-    images: [
-      {
-        src: `${flowerBase}/page-7.png`,
-        alt: "Flowers prediction website",
-        caption: "Flowers Prediction Website — user-facing inference prototype",
-      },
     ],
   },
   lessonsLearned: {
@@ -1392,7 +1376,7 @@ export const projects: Project[] = [
     year: "2025",
     shortDescription:
       "Five-class flower image classification on Flowers-5 — VGG16, ResNet101 & AlexNet compared; ResNet101 reached 92% test accuracy.",
-    coverImage: `${flowerBase}/page-7.png`,
+    coverImage: `${flowerBase}/product-flow.png`,
     coverObjectPosition: "center center",
     role: "Machine Learning Developer · Report Author",
     duration: "May 2025",
