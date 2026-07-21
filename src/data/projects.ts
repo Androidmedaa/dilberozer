@@ -1537,7 +1537,8 @@ export const projects: Project[] = [
     year: "",
     shortDescription: "",
     coverImage: "/projects/glowla/hero.png",
-    coverObjectPosition: "center",
+    coverFit: "contain",
+    coverObjectPosition: "center center",
     technologies: [],
     gallery: "work",
     sections: buildEmptySections(),
@@ -1563,7 +1564,6 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 /** Homepage “Projects” gallery order */
 const WORK_GALLERY_ORDER: string[] = [
-  "glowla",
   "rota-ai",
   "flower-classification-ai",
   "cinema-night-film-management",
@@ -1571,6 +1571,7 @@ const WORK_GALLERY_ORDER: string[] = [
   "arduino-simon-game",
   "kits23-kidney-tumor-segmentation",
   "sema-ai-summarizer",
+  "glowla",
   "other-small-projects",
 ];
 

@@ -225,7 +225,9 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
       </header>
 
       {project.coverImage ? (
-        <div className={`${styles.heroImage} ${fitContain ? styles.heroImageContain : ""}`}>
+        <div
+          className={`${styles.heroImage} ${fitContain ? styles.heroImageContain : ""} ${project.slug === "glowla" ? styles.heroImageContainBrand : ""}`}
+        >
           <PortfolioImage
             src={project.coverImage}
             alt={project.title}

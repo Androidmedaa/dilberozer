@@ -51,6 +51,10 @@
   min-height: 0;
 }
 
+.heroImageContainBrand {
+  background: #1a0a2e;
+}
+
 .heroImgContain {
   object-fit: contain !important;
 }
