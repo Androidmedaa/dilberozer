@@ -88,9 +88,11 @@ const kits23Sections: ProjectSections = {
       "This project documents our work on the 2023 Kidney and Kidney Tumor Segmentation Challenge (KiTS23), organized to advance automatic semantic segmentation of kidneys, kidney tumors, and cysts from CT imaging. Prepared for İzmir Bakırçay University Computer Engineering course KİTS23, the study evaluates how modern deep learning architectures perform on an expanded, clinically diverse public benchmark.",
     images: [
       {
-        src: `${kits23Base}/page-1.png`,
-        alt: "KiTS23 report cover and abstract",
-        caption: "Project report — KiTS23 kidney tumor segmentation study",
+        src: `${kits23Base}/hero.png`,
+        alt: "KiTS23 hero — kidney and tumor segmentation",
+        caption: "KiTS23 — comparative deep learning study for kidney tumor segmentation",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -101,9 +103,11 @@ const kits23Sections: ProjectSections = {
       "Kidney cancer is diagnosed in more than 430,000 people each year and causes approximately 180,000 deaths. Radiologists often cannot reliably classify small renal masses as malignant or benign from imaging alone. Many lesions thought to be aggressive are actually indolent, which has increased adoption of active surveillance for small masses. However, the risk of progression to metastatic disease remains a major clinical concern—creating strong demand for objective, reproducible tools that support risk stratification and outcome prediction.",
     images: [
       {
-        src: `${kits23Base}/page-2.png`,
-        alt: "Problem definition and dataset context",
-        caption: "Clinical context and segmentation challenge motivation",
+        src: `${kits23Base}/problem-and-data.png`,
+        alt: "Problem definition and KiTS23 dataset",
+        caption: "Problem and data — clinical need and challenge dataset",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -133,9 +137,18 @@ const kits23Sections: ProjectSections = {
     ],
     images: [
       {
-        src: `${kits23Base}/page-3.png`,
-        alt: "Architecture comparison and conclusions",
-        caption: "Model comparison summary from the KiTS23 report",
+        src: `${kits23Base}/architecture-comparison.png`,
+        alt: "CNN architecture comparison for KiTS23",
+        caption: "Architecture comparison — AlexNet, RNN, ResNet, GoogleNet, InceptionV3",
+        fullWidth: true,
+        unoptimized: true,
+      },
+      {
+        src: `${kits23Base}/inceptionv3-diagram.png`,
+        alt: "InceptionV3 architecture diagram",
+        caption: "InceptionV3 — multi-scale feature extraction selected for the task",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -166,9 +179,11 @@ const kits23Sections: ProjectSections = {
     ],
     images: [
       {
-        src: `${kits23Base}/page-2.png`,
-        alt: "Dataset and methodology section",
-        caption: "Dataset characteristics and challenge objectives",
+        src: `${kits23Base}/experimental-pipeline.png`,
+        alt: "KiTS23 experimental pipeline",
+        caption: "Experimental pipeline — preprocess, train, compare, select",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -199,9 +214,11 @@ const kits23Sections: ProjectSections = {
     ],
     images: [
       {
-        src: `${kits23Base}/page-4.png`,
-        alt: "Final conclusions and references",
-        caption: "Conclusion: InceptionV3 as the most suitable architecture",
+        src: `${kits23Base}/results.png`,
+        alt: "KiTS23 model accuracy results",
+        caption: "Results — InceptionV3 leads at 92% accuracy",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -215,6 +232,15 @@ const kits23Sections: ProjectSections = {
       "A unified training protocol is essential for fair architecture comparison.",
       "Public challenges accelerate reproducible research and clinical translation.",
       "Future work should explore full 3D segmentation and external validation on held-out cases.",
+    ],
+    images: [
+      {
+        src: `${kits23Base}/conclusion-and-limitations.png`,
+        alt: "Conclusions and limitations",
+        caption: "Conclusion and limitations — findings and next steps",
+        fullWidth: true,
+        unoptimized: true,
+      },
     ],
   },
 };
@@ -1326,8 +1352,7 @@ export const projects: Project[] = [
     year: "2025",
     shortDescription:
       "Comparative study of CNN architectures for KiTS23 kidney tumor segmentation — InceptionV3 reached 92% accuracy.",
-    coverImage: `${kits23Base}/page-3.png`,
-    coverFit: "contain",
+    coverImage: `${kits23Base}/hero.png`,
     coverObjectPosition: "center top",
     role: "Machine Learning Research · Report Author",
     duration: "January 2025",
