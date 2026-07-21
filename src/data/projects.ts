@@ -551,7 +551,6 @@ const flowerClassificationSections: ProjectSections = {
 };
 
 const cinemaNightBase = "/projects/cinema-night";
-const cn = `${cinemaNightBase}/screenshots`;
 
 const cinemaNightSections: ProjectSections = {
   projectOverview: {
@@ -568,9 +567,11 @@ const cinemaNightSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${cn}/screen-04-0.png`,
-        alt: "Cinema Night home screen",
-        caption: "Main screen — film carousel, search bar, filter and sort sidebar",
+        src: `${cinemaNightBase}/hero.png`,
+        alt: "Cinema Night desktop hero — catalog and login",
+        caption: "Cinema Night — desktop movie discovery with role-based access",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -599,19 +600,11 @@ const cinemaNightSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${cn}/screen-05-1.png`,
-        alt: "Login screen",
-        caption: "Login — routed from the home Sign In button",
-      },
-      {
-        src: `${cn}/screen-06-0.png`,
-        alt: "Registration screen with Premium tier",
-        caption: "Register — Premium membership example (red username styling)",
-      },
-      {
-        src: `${cn}/screen-09-0.png`,
-        alt: "Logged-in home with film carousel",
-        caption: "After login — profile, watchlist, filters, and database-driven film list",
+        src: `${cinemaNightBase}/user-journey.png`,
+        alt: "Cinema Night user journey screens",
+        caption: "User journey — browse, login gate, membership, and film detail",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -675,24 +668,11 @@ const cinemaNightSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${cn}/screen-10-0.png`,
-        alt: "Film detail and review entry",
-        caption: "Film detail — metadata tabs and Premium evaluate flow",
-      },
-      {
-        src: `${cn}/screen-11-0.png`,
-        alt: "Comments tab with user reviews",
-        caption: "Comments — dated reviews and ratings from the database",
-      },
-      {
-        src: `${cn}/screen-20-0.png`,
-        alt: "Admin film management grid",
-        caption: "Admin panel — view all films, add, edit, delete with posters",
-      },
-      {
-        src: `${cn}/screen-21-0.png`,
-        alt: "Admin add film with poster",
-        caption: "Add film — poster picker and metadata fields",
+        src: `${cinemaNightBase}/admin-experience.png`,
+        alt: "Cinema Night admin experience",
+        caption: "Admin experience — film CRUD, posters, and catalog management",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -723,24 +703,11 @@ const cinemaNightSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${cn}/screen-33-0.png`,
-        alt: "Notifcylon notification for new film",
-        caption: "New film notification — Forrest Gump added by admin",
-      },
-      {
-        src: `${cn}/screen-35-0.png`,
-        alt: "Filter films by release year",
-        caption: "Filter — year 2023 query results",
-      },
-      {
-        src: `${cn}/screen-37-0.png`,
-        alt: "Sort by most reviewed films",
-        caption: "Sort — most reviewed films ascending",
-      },
-      {
-        src: `${cn}/screen-40-0.png`,
-        alt: "Keyword search for gump",
-        caption: "Search — keyword match across film titles",
+        src: `${cinemaNightBase}/discovery-features.png`,
+        alt: "Cinema Night discovery and filter features",
+        caption: "Discovery features — search, filters, sort, and catalog browsing",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -775,9 +742,11 @@ const arduinoSimonSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${arduinoSimonBase}/image7.jpeg`,
-        alt: "Arduino Simon game hardware prototype",
-        caption: "Embedded Systems lab project — physical prototype",
+        src: `${arduinoSimonBase}/hero.png`,
+        alt: "Simon Memory Game hero — Arduino and illuminated buttons",
+        caption: "Simon Memory Game — Arduino-based state, timing, and interaction",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -807,9 +776,11 @@ const arduinoSimonSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${arduinoSimonBase}/image2.png`,
-        alt: "Simon game flow diagram",
-        caption: "Game flow — setup, sequence display, input check, level advance",
+        src: `${arduinoSimonBase}/gameplay-loop.png`,
+        alt: "Simon game gameplay loop diagram",
+        caption: "Gameplay loop — sequence, input, feedback, and level advance",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -827,9 +798,11 @@ const arduinoSimonSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${arduinoSimonBase}/image1.png`,
-        alt: "Simon game circuit schematic",
-        caption: "Circuit diagram — Arduino Uno, LEDs, buttons, OLED, buzzer",
+        src: `${arduinoSimonBase}/hardware.png`,
+        alt: "Simon game hardware layout",
+        caption: "Hardware — Arduino Uno, LEDs, buttons, OLED, and buzzer",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -868,14 +841,11 @@ const arduinoSimonSections: ProjectSections = {
     ],
     images: [
       {
-        src: `${arduinoSimonBase}/image4.png`,
-        alt: "Simon game OLED interface during play",
-        caption: "OLED feedback — level and score display",
-      },
-      {
-        src: `${arduinoSimonBase}/image5.png`,
-        alt: "Simon game design screenshot",
-        caption: "In-game state — sequence and input phases",
+        src: `${arduinoSimonBase}/logic.png`,
+        alt: "Simon game firmware logic overview",
+        caption: "Firmware logic — state machine, interrupts, and EEPROM score",
+        fullWidth: true,
+        unoptimized: true,
       },
     ],
   },
@@ -901,18 +871,6 @@ const arduinoSimonSections: ProjectSections = {
       "OLED shows level, current score, and record after game over.",
       "EEPROM retains highScore after power loss.",
       "Formal report with circuit diagram, flow chart, and team photos.",
-    ],
-    images: [
-      {
-        src: `${arduinoSimonBase}/image8.jpeg`,
-        alt: "Team working on embedded Simon prototype",
-        caption: "Lab collaboration — assembly and testing",
-      },
-      {
-        src: `${arduinoSimonBase}/image9.jpeg`,
-        alt: "Simon game prototype on breadboard",
-        caption: "Breadboard prototype — LEDs, buttons, and OLED",
-      },
     ],
   },
   lessonsLearned: {
@@ -1306,7 +1264,7 @@ export const projects: Project[] = [
     year: "2024",
     shortDescription:
       "Cinema Night — WinForms film app with Standard/Premium tiers, PostgreSQL, admin CRUD, watchlists, reviews, filters, and Notifcylon notifications.",
-    coverImage: `${cn}/screen-04-0.png`,
+    coverImage: `${cinemaNightBase}/hero.png`,
     coverObjectPosition: "center top",
     role: "Developer · Report Author",
     duration: "OOP Final Project",
@@ -1338,7 +1296,7 @@ export const projects: Project[] = [
     year: "2025",
     shortDescription:
       "Simon Says on Arduino Uno — OLED display, LED/button pairs, buzzer feedback, EEPROM high score, and hardware interrupt.",
-    coverImage: `${arduinoSimonBase}/image7.jpeg`,
+    coverImage: `${arduinoSimonBase}/hero.png`,
     coverFit: "contain",
     coverObjectPosition: "center center",
     role: "Embedded Software Developer · Report Author",
@@ -1557,7 +1515,7 @@ export function getProjectBySlug(slug: string): Project | undefined {
 }
 
 /** Homepage “Projects” gallery order */
-const WORK_GALLERY_ORDER = [
+const WORK_GALLERY_ORDER: string[] = [
   "rota-ai",
   "flower-classification-ai",
   "cinema-night-film-management",
@@ -1566,7 +1524,7 @@ const WORK_GALLERY_ORDER = [
   "kits23-kidney-tumor-segmentation",
   "sema-ai-summarizer",
   "other-small-projects",
-] as const;
+];
 
 export function getProjectsByGallery(
   gallery?: "work" | "internships" | "ai",
