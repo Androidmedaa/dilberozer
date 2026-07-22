@@ -178,6 +178,8 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
       project.technologies.length > 0,
   );
 
+  const showLivePanel = Boolean(project.liveUrl);
+
   const lightboxImages = useMemo<LightboxImage[]>(
     () =>
       renderedSections.flatMap((section) =>
@@ -241,6 +243,40 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
             priority
           />
         </div>
+      ) : null}
+
+      {showLivePanel ? (
+        <aside className={styles.livePanel} aria-label={`${project.title} live product`}>
+          <div className={styles.livePanelGlow} aria-hidden="true" />
+          <div className={styles.livePanelInner}>
+            <div className={styles.livePanelCopy}>
+              {project.statusLabel ? (
+                <span className={styles.liveStatus}>{project.statusLabel}</span>
+              ) : null}
+              <p className={styles.liveHeadline}>
+                {project.liveHeadline ?? `Visit ${project.title}`}
+              </p>
+              {project.liveDescription ? (
+                <p className={styles.liveBody}>{project.liveDescription}</p>
+              ) : null}
+            </div>
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.liveCta}
+            >
+              Visit{" "}
+              {project.liveUrl!
+                .replace(/^https?:\/\//, "")
+                .replace(/\/$/, "")
+                .replace(/^www\./, "")}
+              <span className={styles.liveCtaArrow} aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+        </aside>
       ) : null}
 
       {showMeta ? (
