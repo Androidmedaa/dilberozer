@@ -55,6 +55,14 @@ export type Project = {
   team?: string;
   course?: string;
   repository?: string;
+  /** Public product / live site URL */
+  liveUrl?: string;
+  /** Short status line shown with the live CTA (e.g. In development) */
+  statusLabel?: string;
+  /** Headline for the live product panel */
+  liveHeadline?: string;
+  /** Supporting copy for the live product panel */
+  liveDescription?: string;
   /** Use "contain" for title/card graphics that should not be cropped */
   coverFit?: "cover" | "contain";
   /** Fine-tune framing for report/UI screenshots on gallery cards */
@@ -1533,12 +1541,19 @@ export const projects: Project[] = [
   {
     slug: "glowla",
     title: "Glowla",
-    category: "",
-    year: "",
-    shortDescription: "",
+    category: "Venture · Beauty Tech",
+    year: "2026",
+    shortDescription:
+      "Glowla — discover care and beauty services. Live product in active development.",
     coverImage: "/projects/glowla/hero.png",
     coverFit: "contain",
     coverObjectPosition: "center center",
+    role: "Founder · Product Builder",
+    liveUrl: "https://www.glowla.site/",
+    statusLabel: "In development",
+    liveHeadline: "Discover care & beauty — live, still shipping.",
+    liveDescription:
+      "Glowla helps people explore beauty and care services. The product is live at glowla.site while I keep building in public.",
     technologies: [],
     gallery: "work",
     sections: buildEmptySections(),
